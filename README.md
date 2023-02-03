@@ -27,11 +27,13 @@
 - Criar um thunk com createAsyncThunk; :white_check_mark:
 - Utilizar o extraReducers para adicionar actions de fora do slice. :white_check_mark:
 ### Aula 4:
-- Utilizar o StrictMode e para que ele serve;
-- Aproveitar os estágios do async thunk;
-- Baixar e utilizar o standalone toast do chakra-ui.
+- Utilizar o StrictMode e para que ele serve; :white_check_mark:
+- Aproveitar os estágios do async thunk; :white_check_mark:
+- Baixar e utilizar o standalone toast do chakra-ui. :white_check_mark:
 ### Aula 5:
-- 
+- Aproveitar os estados de um async thunk para mostrar visualmente na tela; :white_check_mark:
+- Adicionar casos em um reducer de actions que ocorrem em outro reducer; :white_check_mark:
+- Como utilizar o addCase como um middleware, mesmo ele não sendo um. :white_check_mark:
 
 # Rodar o projeto
 
@@ -40,10 +42,10 @@ In the project directory, you can run:
 ### `yarn server`
 ### `yarn start`
 
-Runs the app in the development mode.\
-App [http://localhost:3000](http://localhost:3000) to view it in your browser.
-Server categorias [http://localhost:3001/categorias](http://localhost:3001/categorias) to view it in your browser.
-Server itens [http://localhost:3001/itens](http://localhost:3001/itens) to view it in your browser.
+
+- App [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Server categorias [http://localhost:3001/categorias](http://localhost:3001/categorias) to view it in your browser.
+- Server itens [http://localhost:3001/itens](http://localhost:3001/itens) to view it in your browser.
 
 # Getting Started with Create React App
 

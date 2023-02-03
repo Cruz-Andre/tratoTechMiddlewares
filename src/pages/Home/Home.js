@@ -13,13 +13,13 @@ export default function Home() {
   
   const navigate = useNavigate()
   const categorias = useSelector(state => state.categorias)
-  
-  const dispatch = useDispatch()
 
+  const dispatch = useDispatch()
   useEffect(() => {
     dispatch(buscarCategorias())
     dispatch(buscarItens())
   }, [dispatch])
+
 
   return (
     <div>

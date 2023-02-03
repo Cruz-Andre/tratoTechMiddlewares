@@ -1,5 +1,8 @@
+import { createStandaloneToast } from "@chakra-ui/toast";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import categoriasService from "services/categoriasService";
+
+const {toast} = createStandaloneToast()
 
 const estadoInicial = []
 
@@ -18,7 +21,13 @@ const categoriasSlice = createSlice({
       //recebendo o que foi chamado da api pelo categoriasService.
       buscarCategorias.fulfilled,
       (state, {payload}) => {
-        console.log('categorias carregadas!')
+        toast({
+          title: 'Sucesso!',
+          description: 'Categorias carregadas com sucesso!',
+          status: 'success',
+          duration: 2000,
+          isClosable: true
+        })
         // state.push(...payload) pega o que já está no estado e adiciona coisas novas, mas como só temos as mesmas categorias podemos usar só o return payload
         return payload // sempre retorna o que vem da api
       }
@@ -26,13 +35,25 @@ const categoriasSlice = createSlice({
     .addCase(
       buscarCategorias.pending,
       (state, {payload}) => {
-        console.log('carregando categoria')
+        toast({
+          title: 'Carregando!',
+          description: 'Carregando categorias...',
+          status: 'loading',
+          duration: 2000,
+          isClosable: true
+        })
       }
     )
     .addCase(
       buscarCategorias.rejected,
       (state, {payload}) => {
-        console.log('busca de categorias rejeitada!');
+        toast({
+          title: 'Erro!',
+          description: 'Erro na busca de categorias',
+          status: 'error',
+          duration: 2000,
+          isClosable: true
+        })
       }
     )
   }

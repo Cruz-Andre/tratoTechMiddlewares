@@ -6,13 +6,19 @@ import styles from './Anuncie.module.scss'
 import { cadastrarItem } from "store/reducers/itensSlice";
 import { useParams } from "react-router-dom";
 import Input from "components/Input/Input";
+import { useEffect } from "react";
+import { buscarCategorias } from "store/reducers/categoriasSlice";
 
 
 export default function Anuncie() {
   const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(buscarCategorias())
+  }, [dispatch])
                                                 //aqui o categorias é nome dado no reducer
   const categorias = useSelector(state => state.categorias.map(({nome, id}) => ({nome, id})))
-  //console.log(categorias)
+  console.log(categorias)
 
   const { nomeCategoria = '' } = useParams()
   const { register, handleSubmit, formState } = useForm({

@@ -6,7 +6,7 @@ import store from './store/store'
 import { Provider } from 'react-redux'
 import { createStandaloneToast } from '@chakra-ui/toast'
 
-const {ToastContainer, toast} = createStandaloneToast()
+const {ToastContainer} = createStandaloneToast()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,8 +17,3 @@ root.render(
     </Provider>
  //</React.StrictMode>
 );
-
-toast({
-  description: 'Está funcionando',
-  duration: 2000
-})
