@@ -1,0 +1,152 @@
+.item {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.08));
+  flex-direction: column;
+  //overflow: hidden;
+  width: 335px;
+
+  @media(max-width: 480px) {
+    align-items: center;
+  }
+
+  &-deletar {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
+
+  // &-imagem1 {
+  //   height: 160px;
+  //   margin: 0 auto;
+
+  //   img {
+  //     width: 100%;
+  //     height: 100%;
+  //   }
+  // }
+
+  &-descricao {
+    background-color: #EFF9FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  &-titulo {
+    padding: 16px 16px 0 16px;
+
+    h2 {
+      color: #1875E8;
+      font-size: 20px;
+    }
+
+    p {
+      color: #444;
+    }
+  }
+
+
+  &-info {
+    display: flex;
+    justify-content: space-between;
+
+    @media(max-width: 850px) {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+    }
+  }
+
+  &-preco {
+    align-items: center;
+    background-color: #1875E8;
+    color: white;
+    display: flex;
+    font-size: 20px;
+    height: 70px;
+    justify-content: center;
+    width: 170px;
+  }
+
+  &-acoes {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+
+    @media(max-width: 850px) {
+      margin-bottom: 10px;
+      column-gap: 50px;
+    }
+  }
+
+  &-acao {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.imagem1 {
+  width: 335px;
+  height: 160px;
+  margin: 0 auto;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
+
+.itemNoCarrinho {
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .quantidade {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  .item-acoes {
+    gap: 50px;
+    justify-content: flex-end;
+    padding: 0 50px;
+
+    @media(max-width: 850px) {
+      margin: 10px 0;
+      gap: 20px;
+      flex-direction: column;
+    }
+  }
+}
+
+.botaoRemover {
+  background-color: #1875E8;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.botaoRemover:hover {
+  background-color: #041833;
+  border: solid 1px #1875E8;
+  font-weight: 700;
+
+}
