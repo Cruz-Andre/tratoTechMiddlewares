@@ -1,12 +1,14 @@
 ![React: entendendo Middlewares com Redux Thunk](curso.png)
 
 # Site Trato Tech entendendo Middlewares com Redux Thunk
+- Redux Thunk
+- Json Server
+- Axios
 - JavaScipt
 - Criação de componentes e pages
 - CSS modules
 - React Router
 - React Redux
-- Redux Thunk
 - ReduxJS Toolkit
 - React Hook Form
 
@@ -15,7 +17,11 @@
 ### Aula 1:
 - Configurando o projeto :white_check_mark:
 ### Aula 2:
-- 
+- Criar um servidor simulado com json-server; :white_check_mark:
+- Buscar os dados deste servidor com axios; :white_check_mark:
+- Adicionar os dados buscados dentro do reducer que criamos; :white_check_mark:
+- A base do que é um useCallback; :white_check_mark:
+- A base do porquê transferimos as imagens para a pasta public quando buscamos imagens sem imports. :white_check_mark:
 ### Aula 3:
 - 
 ### Aula 4:
