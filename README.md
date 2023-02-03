@@ -1,6 +1,6 @@
-![React: entendendo Middlewares com Redux Thunk](curso.png)
+![React: entendendo Middlewares com Redux Thunk & Avançando em Middlewares com Listener Middleware](curso.png)
 
-# Site Trato Tech entendendo Middlewares com Redux Thunk
+# Site Trato Tech entendendo Middlewares com Redux Thunk & Avançando em Middlewares com Listener Middleware
 - Redux Thunk
 - Json Server
 - Axios
@@ -14,6 +14,7 @@
 
 #### Vercel Pages: em breve
 
+## Entendendo Middlewares com Redux Thunk
 ### Aula 1:
 - Configurando o projeto :white_check_mark:
 ### Aula 2:
@@ -34,6 +35,18 @@
 - Aproveitar os estados de um async thunk para mostrar visualmente na tela; :white_check_mark:
 - Adicionar casos em um reducer de actions que ocorrem em outro reducer; :white_check_mark:
 - Como utilizar o addCase como um middleware, mesmo ele não sendo um. :white_check_mark:
+
+## Avançando em Middlewares com Listener Middleware
+### Aula 2.1:
+- Quais middlewares existem por padrão no Redux Toolkit; :white_check_mark:
+- Como adicionar middlewares que não são adicionados por padrão; :white_check_mark:
+- O que é o listener middleware e como ele nos ajuda a escutar actions. :white_check_mark:
+### Aula 3.1:
+- 
+### Aula 4.1:
+- 
+### Aula 5.1:
+- 
 
 # Rodar o projeto
 
