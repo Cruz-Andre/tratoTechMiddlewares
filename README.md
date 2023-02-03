@@ -23,7 +23,9 @@
 - A base do que é um useCallback; :white_check_mark:
 - A base do porquê transferimos as imagens para a pasta public quando buscamos imagens sem imports. :white_check_mark:
 ### Aula 3:
-- 
+- Criar um middleware, o que é um middleware e quando ele é executado; :white_check_mark:
+- Criar um thunk com createAsyncThunk; :white_check_mark:
+- Utilizar o extraReducers para adicionar actions de fora do slice. :white_check_mark:
 ### Aula 4:
 - 
 ### Aula 5:

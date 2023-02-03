@@ -1,6 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import itensService from "services/itensService";
 
 import { v4 as uuid } from 'uuid'
+
+export const buscarItens = createAsyncThunk(
+  'itens/buscar',
+  itensService.buscar
+)
 
 const itensSlice = createSlice({
   name: 'itens',
@@ -43,10 +49,19 @@ const itensSlice = createSlice({
       //return state.filter(item => item.id !== payload)
     },
 
-    // O adicionarItens: está puxando os itens do servidor (db.json)
+    // O adicionarItens: é a action para mostrar os itens que está vindo do servidor (db.json) pelo extraReducers
     adicionarItens: (state, {payload}) => {
       state.push(...payload)
     }
+  },
+  extraReducers: builder => {
+    builder.addCase(
+      //recebendo o que foi chamado da api pelo itensService
+      buscarItens.fulfilled,
+      (state, {payload}) => {
+        state.push(...payload)
+      }
+    )
   }
 })
 

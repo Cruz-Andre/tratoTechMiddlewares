@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from 'components/Button/Button';
 import { useCallback, useEffect } from 'react';
 import instance from 'common/config/api';
-import { adicionarCategorias } from 'store/reducers/categoriasSlice';
-import { adicionarItens } from 'store/reducers/itensSlice';
+import { buscarCategorias } from 'store/reducers/categoriasSlice';
+import { adicionarItens, buscarItens } from 'store/reducers/itensSlice';
 
 export default function Home() {
   
@@ -17,22 +17,10 @@ export default function Home() {
   
   const dispatch = useDispatch()
 
-  const buscarCategorias = useCallback(async () => {
-    const resposta = await instance.get('/categorias')
-    //console.log('RESPOSTA:', resposta)
-    dispatch(adicionarCategorias(resposta.data))
-  }, [dispatch])
-
-  const buscarItens = useCallback(async () => {
-    const resposta = await instance.get('/itens')
-    //console.log('RESPOSTA:', resposta)
-    dispatch(adicionarItens(resposta.data))
-  }, [dispatch])
-
   useEffect(() => {
-    buscarCategorias()
-    buscarItens()
-  }, [buscarCategorias, buscarItens])
+    dispatch(buscarCategorias())
+    dispatch(buscarItens())
+  }, [dispatch])
 
   return (
     <div>
