@@ -26,7 +26,7 @@ const itensSlice = createSlice({
     // nova action para cadastrar um novo item
     cadastrarItem: (state, { payload }) => {
       //console.log('payload:', payload)
-      state.push({...payload, id: uuid(), favorito: false})
+      state.push({ ...payload, id: uuid(), favorito: false })
     },
 
     mudarItem: (state, { payload }) => {
@@ -40,31 +40,42 @@ const itensSlice = createSlice({
       // Object.assign(state[index], payload.item)
     },
 
-    deletarItem: (state, {payload}) => {
+    deletarItem: (state, { payload }) => {
       //console.log(payload)
       //forma que o immer pede para deletar
       const index = state.findIndex(item => item.id === payload)
       state.splice(index, 1)
 
       //return state.filter(item => item.id !== payload)
-    },
-
-    // O adicionarItens: é a action para mostrar os itens que está vindo do servidor (db.json) pelo extraReducers
-    adicionarItens: (state, {payload}) => {
-      state.push(...payload)
     }
   },
+
+  // O extraReducers: é a uma action "de fora" para mostrar os ITENS que está vindo do servidor (db.json) pelo itensService
   extraReducers: builder => {
     builder.addCase(
       //recebendo o que foi chamado da api pelo itensService
       buscarItens.fulfilled,
-      (state, {payload}) => {
-        state.push(...payload)
+      (state, { payload }) => {
+        console.log('itens carregados!')
+        // state.push(...payload) pega o que já está no estado e adiciona coisas novas, mas como só temos os mesmos itens podemos usar só o return payload
+        return payload // sempre retorna o que vem da api
+      }
+    )
+    .addCase(
+      buscarItens.pending,
+      (state, { payload }) => {
+        console.log('carregando itens')
+      }
+    )
+    .addCase(
+      buscarItens.rejected,
+      (state, { payload }) => {
+        console.log('busca de itens rejeitada!');
       }
     )
   }
 })
 
-export const { mudarFavorito, cadastrarItem, mudarItem, deletarItem, adicionarItens } = itensSlice.actions
+export const { mudarFavorito, cadastrarItem, mudarItem, deletarItem } = itensSlice.actions
 
 export default itensSlice.reducer

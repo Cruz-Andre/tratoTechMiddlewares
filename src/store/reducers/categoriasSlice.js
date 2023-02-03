@@ -11,23 +11,31 @@ export const buscarCategorias = createAsyncThunk(
 const categoriasSlice = createSlice({
   name: 'categorias',
   initialState: estadoInicial,
-  reducers: {
-    // O adicionarCategorias: é a action para mostrar as categorias que está vindo do servidor (db.json) pelo extraReducers
-    adicionarCategorias: (state, {payload}) => {
-      state.push(...payload)
-    }
-  },
+  reducers: {},
+  // O extraReducers: é a uma action "de fora" para mostrar as CATEGORIAS que está vindo do servidor (db.json) pelo categoriasService
   extraReducers: builder => {
     builder.addCase(
       //recebendo o que foi chamado da api pelo categoriasService.
       buscarCategorias.fulfilled,
       (state, {payload}) => {
-        state.push(...payload)
+        console.log('categorias carregadas!')
+        // state.push(...payload) pega o que já está no estado e adiciona coisas novas, mas como só temos as mesmas categorias podemos usar só o return payload
+        return payload // sempre retorna o que vem da api
+      }
+    )
+    .addCase(
+      buscarCategorias.pending,
+      (state, {payload}) => {
+        console.log('carregando categoria')
+      }
+    )
+    .addCase(
+      buscarCategorias.rejected,
+      (state, {payload}) => {
+        console.log('busca de categorias rejeitada!');
       }
     )
   }
 })
-
-export const { adicionarCategorias } = categoriasSlice.actions
 
 export default categoriasSlice.reducer
