@@ -51,7 +51,9 @@
 - Utilizar princípios como SRP e DRY para manter o código mais legível e de fácil manutenção; :white_check_mark:
 - Carregar dados de acordo com a necessidade da página. :white_check_mark:
 ### Aula 5.1:
-- 
+- Buscar os itens com query strings; :white_check_mark:
+- Criar mais de um listener middleware; :white_check_mark:
+- Adicionar mais de um middleware dentro do configureStore. :white_check_mark:
 
 # Rodar o projeto
 
