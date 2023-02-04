@@ -1,13 +1,17 @@
 import Button from "components/Button/Button";
 import Header from "components/Header/Header";
 import Item from "components/Item/Item";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { carregarUmaCategoria } from "store/reducers/categoriasSlice";
 
 import styles from './Categoria.module.scss'
 
 export default function Categoria() {
-
+  
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { nomeCategoria } = useParams()
 
   // Não há necessidade de usar o useSelector duas ou mais vezes.
@@ -19,7 +23,10 @@ export default function Categoria() {
     }
   })
 
-  const navigate = useNavigate()
+  useEffect(() => {
+    dispatch(carregarUmaCategoria(nomeCategoria))
+  }, [dispatch, nomeCategoria])
+
 
   return (
     <div>

@@ -7,25 +7,21 @@ import { cadastrarItem } from "store/reducers/itensSlice";
 import { useParams } from "react-router-dom";
 import Input from "components/Input/Input";
 import { useEffect } from "react";
-import { buscarCategorias } from "store/reducers/categoriasSlice";
+import { carregarCategorias, carregarUmaCategoria } from "store/reducers/categoriasSlice";
 
 
 export default function Anuncie() {
-  const dispatch = useDispatch()
-  
-  useEffect(() => {
-    dispatch(buscarCategorias())
-  }, [dispatch])
+  const dispatch = useDispatch()  
+  const { nomeCategoria = '' } = useParams()
                                                 //aqui o categorias é nome dado no reducer
   const categorias = useSelector(state => state.categorias.map(({nome, id}) => ({nome, id})))
-  console.log(categorias)
-
-  const { nomeCategoria = '' } = useParams()
+  //console.log(categorias)
   const { register, handleSubmit, formState } = useForm({
     defaultValues: {
       categoria: nomeCategoria
     }
   })
+  
   //console.log(register('novoInput'))
 
   const {errors} = formState
@@ -36,6 +32,10 @@ export default function Anuncie() {
     //console.log('Data:', data);
     dispatch(cadastrarItem(data))
   }
+
+  useEffect(() => {
+    dispatch(nomeCategoria ? carregarUmaCategoria(nomeCategoria) : carregarCategorias)
+  }, [dispatch, nomeCategoria])
 
 
   return (

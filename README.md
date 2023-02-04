@@ -47,7 +47,9 @@
 - Disparar actions dentro do listener middleware; :white_check_mark:
 - Se desinscrever de uma action com unsubscribe. :white_check_mark:
 ### Aula 4.1:
-- 
+- Reaproveitar códigos dentro do listener middleware; :white_check_mark:
+- Utilizar princípios como SRP e DRY para manter o código mais legível e de fácil manutenção; :white_check_mark:
+- Carregar dados de acordo com a necessidade da página. :white_check_mark:
 ### Aula 5.1:
 - 
 

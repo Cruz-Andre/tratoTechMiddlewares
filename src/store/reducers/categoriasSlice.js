@@ -5,9 +5,8 @@ import { resetarCarrinho } from "./carrinhoSlice";
 
 const {toast} = createStandaloneToast()
 
-const estadoInicial = []
-
 export const carregarCategorias = createAction('categorias/carregarCategorias')
+export const carregarUmaCategoria = createAction('categorias/carregarUmaCategoria')
 
 export const buscarCategorias = createAsyncThunk(
   'categorias/buscar',
@@ -16,10 +15,13 @@ export const buscarCategorias = createAsyncThunk(
 
 const categoriasSlice = createSlice({
   name: 'categorias',
-  initialState: estadoInicial,
+  initialState: [],
   reducers: {
     adicionarTodasCategorias: (state, {payload}) => {
       return payload
+    },
+    adicionarUmaCategoria: (state, {payload}) => {
+      state.push(payload)
     }
   },
   // O extraReducers: é a uma action "de fora" para mostrar as CATEGORIAS que está vindo do servidor (db.json) pelo categoriasService
@@ -40,6 +42,6 @@ const categoriasSlice = createSlice({
   }
 })
 
-export const {adicionarTodasCategorias} = categoriasSlice.actions
+export const {adicionarTodasCategorias, adicionarUmaCategoria} = categoriasSlice.actions
 
 export default categoriasSlice.reducer
