@@ -1,10 +1,13 @@
 import { createStandaloneToast } from "@chakra-ui/toast";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import categoriasService from "services/categoriasService";
+import { resetarCarrinho } from "./carrinhoSlice";
 
 const {toast} = createStandaloneToast()
 
 const estadoInicial = []
+
+export const carregarCategorias = createAction('categorias/carregarCategorias')
 
 export const buscarCategorias = createAsyncThunk(
   'categorias/buscar',
@@ -14,43 +17,21 @@ export const buscarCategorias = createAsyncThunk(
 const categoriasSlice = createSlice({
   name: 'categorias',
   initialState: estadoInicial,
-  reducers: {},
+  reducers: {
+    adicionarTodasCategorias: (state, {payload}) => {
+      return payload
+    }
+  },
   // O extraReducers: é a uma action "de fora" para mostrar as CATEGORIAS que está vindo do servidor (db.json) pelo categoriasService
   extraReducers: builder => {
-    builder.addCase(
-      //recebendo o que foi chamado da api pelo categoriasService.
-      buscarCategorias.fulfilled,
-      (state, {payload}) => {
+    builder
+    .addCase(
+      resetarCarrinho.type,
+      () => {
         toast({
           title: 'Sucesso!',
-          description: 'Categorias carregadas com sucesso!',
+          description: 'Compra completada com sucesso',
           status: 'success',
-          duration: 2000,
-          isClosable: true
-        })
-        // state.push(...payload) pega o que já está no estado e adiciona coisas novas, mas como só temos as mesmas categorias podemos usar só o return payload
-        return payload // sempre retorna o que vem da api
-      }
-    )
-    .addCase(
-      buscarCategorias.pending,
-      (state, {payload}) => {
-        toast({
-          title: 'Carregando!',
-          description: 'Carregando categorias...',
-          status: 'loading',
-          duration: 2000,
-          isClosable: true
-        })
-      }
-    )
-    .addCase(
-      buscarCategorias.rejected,
-      (state, {payload}) => {
-        toast({
-          title: 'Erro!',
-          description: 'Erro na busca de categorias',
-          status: 'error',
           duration: 2000,
           isClosable: true
         })
@@ -58,5 +39,7 @@ const categoriasSlice = createSlice({
     )
   }
 })
+
+export const {adicionarTodasCategorias} = categoriasSlice.actions
 
 export default categoriasSlice.reducer

@@ -42,7 +42,10 @@
 - Como adicionar middlewares que não são adicionados por padrão; :white_check_mark:
 - O que é o listener middleware e como ele nos ajuda a escutar actions. :white_check_mark:
 ### Aula 3.1:
-- 
+- Utilizar o fork para criar mini tarefas no listener middleware; :white_check_mark:
+- Criar actions fora do slice com createAction; :white_check_mark:
+- Disparar actions dentro do listener middleware; :white_check_mark:
+- Se desinscrever de uma action com unsubscribe. :white_check_mark:
 ### Aula 4.1:
 - 
 ### Aula 5.1:
